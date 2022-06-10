@@ -1,30 +1,95 @@
 Declare,metatab-latest
-Title,
-Description,
+Title,Staff Demographic Data
+Description,"Data files pertaining to staff demographics, credentials and teaching load."
 Identifier,94aa4f4f-d315-4138-b397-35c6a9182462
-Name,cde.ca.gov-staff-1.1.1
+Name,cde.ca.gov-staff-1.1.2
 Dataset,staff
 Origin,cde.ca.gov
 Time,
 Space,
 Grain,
 Variant,
-Version,1.1.1
+Version,1.1.2
 Version.Major,1
 Version.Minor,1
-Version.Patch,1
+Version.Patch,2
 Created,2022-06-10T18:15:47
-Modified,2022-06-10T18:15:48
+Modified,2022-06-10T21:36:47
 Giturl,https://github.com/metatab-packages/cde.ca.gov-collection.git
-""
+License,
+
 Section,Contacts,Email,Organization,Url
 Wrangler,Eric Busboom,eric@civicknowledge.com,Civic Knowledge,http://civicknowledge.com
-""
+
 Section,Documentation,Title,Description,
 Documentation,file:README.md,README,,
-""
+Downloadpage,https://www.cde.ca.gov/ds/ad/staffdemo.asp,,,
+Documentation,https://www.cde.ca.gov/ds/ad/documents/StaffData-EntityRelationshipDiagram.pdf,StaffData-EntityRelationshipDiagram,ERD diagram for the relationships within the data files.,
+Documentation,https://www.cde.ca.gov/ds/ad/fsstaffdemo15.asp,Staff Demographics 2015-16 to Current,"File structure for the staff demographics record, which includes demographic and full-time equivalent (FTE) data for K-12 public education certificated teachers, administrators, and pupil services personnel reported as employed on Information Day.",
+Documentation,https://www.cde.ca.gov/ds/ad/fsstaffcred12.asp,Staff Credentials 2012–13 to Current,"File structure for staff credential data, including associated authorizations, for staff employed on Information Day.",
+Documentation,https://www.cde.ca.gov/ds/ad/fsstaffschoolfte.asp,Staff School FTE 2012–13 to Current,This table contains the structure for the staff school FTE record.,
+
 Section,References,Name,Description,
-""
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffCred12.txt#target_format=tsv,StaffCred12,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffCred13.txt#target_format=tsv,StaffCred13,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffCred14.txt#target_format=tsv,StaffCred14,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffCred15.txt#target_format=tsv,StaffCred15,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffCred16.txt#target_format=tsv,StaffCred16,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffCred17.txt#target_format=tsv,StaffCred17,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffCred18.txt#target_format=tsv,StaffCred18,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffDemo12.txt#target_format=tsv,StaffDemo12,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffDemo13.txt#target_format=tsv,StaffDemo13,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffDemo14.txt#target_format=tsv,StaffDemo14,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffDemo15.txt#target_format=tsv,StaffDemo15,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffDemo16.txt#target_format=tsv,StaffDemo16,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffDemo17.txt#target_format=tsv,StaffDemo17,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffDemo18.txt#target_format=tsv,StaffDemo18,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffSchoolFTE12.txt#target_format=tsv&encoding=latin1,StaffSchoolFTE12,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffSchoolFTE13.txt#target_format=tsv&encoding=latin1,StaffSchoolFTE13,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffSchoolFTE14.txt#target_format=tsv&encoding=latin1,StaffSchoolFTE14,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffSchoolFTE15.txt#target_format=tsv&encoding=latin1,StaffSchoolFTE15,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffSchoolFTE16.txt#target_format=tsv&encoding=latin1,StaffSchoolFTE16,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffSchoolFTE17.txt#target_format=tsv&encoding=latin1,StaffSchoolFTE17,,
+Reference,https://www3.cde.ca.gov/demo-downloads/staffclass/StaffSchoolFTE18.txt#target_format=tsv&encoding=latin1,StaffSchoolFTE18,,
+
 Section,Resources,Name,Description,
-""
-Section,Schema,DataType,AltName,Description
+Datafile,notebooks/extract.ipynb#staff_cred,staff_cred,Staff credentials,
+Datafile,notebooks/extract.ipynb#staff_demo,staff_demo,Staff Demographics,
+Datafile,notebooks/extract.ipynb#staff_fte,staff_fte,Staff FTE teaching load 100=full time.,
+
+Section,Schema,DataType,AltName,Description,Has_Codes
+Table,staff_cred,,,,
+Table.Column,AcademicYear,integer,academicyear,,
+Table.Column,RecID,integer,recid,,
+Table.Column,CredentialType,integer,credentialtype,,
+Table.Column,AuthorizationType,integer,authorizationtype,,
+Table.Column,FileCreated,date,filecreated,,
+Table,staff_demo,,,,
+Table.Column,AcademicYear,integer,academicyear,,
+Table.Column,RecID,integer,recid,,
+Table.Column,DistrictCode,integer,districtcode,,
+Table.Column,CountyName,string,countyname,,
+Table.Column,DistrictName,string,districtname,,
+Table.Column,GenderCode,string,gendercode,,
+Table.Column,EducationLevel,string,educationlevel,,
+Table.Column,EthnicGroup,integer,ethnicgroup,,
+Table.Column,YearsTeaching,integer,yearsteaching,,
+Table.Column,YearsInDistrict,integer,yearsindistrict,,
+Table.Column,EmploymentStatusCode,string,employmentstatuscode,,
+Table.Column,FTE Teaching,number,fte_teaching,,
+Table.Column,FTE administrative,number,fte_administrative,,
+Table.Column,FTE PupilServices,number,fte_pupilservices,,
+Table.Column,FileCreated,date,filecreated,,
+Table.Column,Age,number,age,,
+Table,staff_fte,,,,
+Table.Column,AcademicYear,integer,academicyear,,
+Table.Column,RecID,integer,recid,,
+Table.Column,DistrictCode,integer,districtcode,,
+Table.Column,SchoolCode,integer,schoolcode,,
+Table.Column,CountyName,string,countyname,,
+Table.Column,DistrictName,string,districtname,,
+Table.Column,SchoolName,string,schoolname,,
+Table.Column,JobClassification,integer,jobclassification,,
+Table.Column,StaffType,string,stafftype,,
+Table.Column,FTE,number,fte,,
+Table.Column,FileCreated,date,filecreated,,
